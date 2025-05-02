@@ -20,7 +20,8 @@ footer {
 
     > .default-content-wrapper > ul {
       display: flex;
-      flex: 1 1 1; 
+      /* flex: 1 1 1;  */
+      flex:1;
       flex-direction: column;
       margin:0;
       > li {
