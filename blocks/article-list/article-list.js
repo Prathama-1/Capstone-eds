@@ -53,7 +53,7 @@ function createHTMLForBlock(json) {
       anchorTag.append(titleSpan);
       anchorTag.append(dateSpan);
 
-      anchorTag.href = "https://main--capstone-eds--prathama-1.aem.page" + page.path;
+      anchorTag.href = "https://master--capstone-eds--prathama-1.aem.page" + page.path;
 
       listItem.append(anchorTag);
       allListItems.push(listItem);
