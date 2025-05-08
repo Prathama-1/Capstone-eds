@@ -28,5 +28,10 @@ module.exports = {
     'prefer-template': 'off',
     'no-dupe-keys': 'off',
     'quote-props': 'off',
+    'no-trailing-spaces': 'off',
+    'arrow-parens': 'off',
+    'no-restricted-syntax': 'off',
+    'nonblock-statement-body-position': 'off',
+    'curly': 'off',
   },
 };
