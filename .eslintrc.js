@@ -14,8 +14,6 @@ module.exports = {
     'import/extensions': ['error', { js: 'always' }], // require js file extensions in imports
     'linebreak-style': ['error', 'unix'], // enforce unix linebreaks
     'no-param-reassign': [2, { props: false }], // allow modifying properties of param
-<<<<<<< HEAD
-=======
     // 'linebreak-style': 'off', // allow windows linebreaks
     'object-curly-newline': 'off',
     'quotes': 'off',
@@ -35,6 +33,5 @@ module.exports = {
     'no-restricted-syntax': 'off',
     'nonblock-statement-body-position': 'off',
     'curly': 'off',
->>>>>>> master
   },
 };
