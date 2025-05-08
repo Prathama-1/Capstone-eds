@@ -13,14 +13,14 @@ export default async function decorate(block) {
     : "/footer";
   const fragment = await loadFragment(footerPath);
   block.textContent = "";
-  
+
   const footerDivContainer = document.createElement("div");
   const footerDivSpace = document.createElement("div");
   footerDivSpace.classList.add("blank-space");
-  
+
   const footerClasses = ["footer-nav", "footer-text"];
   let index = 0;
-  
+
   while (fragment.firstElementChild) {
     fragment.firstElementChild.classList.add(footerClasses[index]);
     footerDivContainer.append(fragment.firstElementChild);
@@ -29,16 +29,16 @@ export default async function decorate(block) {
     }
     index += 1;
   }
-  
+
   // Find the footer navigation section
-  const navSection = footerDivContainer.querySelector('.footer-nav');
+  const navSection = footerDivContainer.querySelector(".footer-nav");
   if (navSection) {
-    const navContent = navSection.querySelector('.default-content-wrapper');
+    const navContent = navSection.querySelector(".default-content-wrapper");
     if (navContent) {
       // Find the paragraph that contains "FOLLOW US" and social icons
-      const paragraphs = navContent.querySelectorAll('p');
+      const paragraphs = navContent.querySelectorAll("p");
       let followUsParagraph = null;
-      
+
       // Find the paragraph containing "FOLLOW US" text
       for (const paragraph of paragraphs) {
         if (paragraph.textContent.includes("FOLLOW US")) {
@@ -46,40 +46,42 @@ export default async function decorate(block) {
           break;
         }
       }
-      
+
       // If we found the follow us paragraph
       if (followUsParagraph) {
         // Create a new container for the social content
-        const socialContainer = document.createElement('div');
-        socialContainer.classList.add('social-container');
-        
+        const socialContainer = document.createElement("div");
+        socialContainer.classList.add("social-container");
+
         // Extract the text content (FOLLOW US)
-        const followUsText = document.createTextNode(followUsParagraph.childNodes[0].textContent);
+        const followUsText = document.createTextNode(
+          followUsParagraph.childNodes[0].textContent
+        );
         socialContainer.appendChild(followUsText);
-        
+
         // Create a box for the social icons
-        const iconBox = document.createElement('div');
-        iconBox.classList.add('social-icons-box');
-        
+        const iconBox = document.createElement("div");
+        iconBox.classList.add("social-icons-box");
+
         // Find social icons and move them to the box
-        const socialIcons = followUsParagraph.querySelectorAll('a');
-        socialIcons.forEach(icon => {
+        const socialIcons = followUsParagraph.querySelectorAll("a");
+        socialIcons.forEach((icon) => {
           // Convert white icons to black (if they have images)
-          const iconImg = icon.querySelector('img');
+          const iconImg = icon.querySelector("img");
           if (iconImg) {
-            iconImg.classList.add('black-icon');
+            iconImg.classList.add("black-icon");
           }
           iconBox.appendChild(icon);
         });
-        
+
         // Add the icon box to the social container
         socialContainer.appendChild(iconBox);
-        
+
         // Remove the original paragraph
         followUsParagraph.remove();
-        
+
         // Add the social container after the nav list
-        const navList = navContent.querySelector('ul');
+        const navList = navContent.querySelector("ul");
         if (navList) {
           navList.parentNode.insertBefore(socialContainer, navList.nextSibling);
         } else {
@@ -88,6 +90,6 @@ export default async function decorate(block) {
       }
     }
   }
-  
+
   block.append(footerDivContainer);
 }
