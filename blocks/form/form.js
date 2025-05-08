@@ -72,8 +72,8 @@ export async function decorate(block) {
   function createButton(fd) {
     const buttonContainer = document.createElement('p');
     buttonContainer.classList.add('button-container');
-    const horizontalLine=document.createElement('hr');
-    const italics=document.createElement('em');
+    const horizontalLine = document.createElement('hr');
+    const italics = document.createElement('em');
     const button = document.createElement('button');
     button.textContent = fd.Label;
     button.classList.add('button');
